@@ -1,0 +1,45 @@
+.carousel {
+  display: flex;
+  &__wrapper {
+    position: relative;
+    width: calc(100% - 100px);
+    height: 100px;
+    border: 1px solid #000;
+    overflow: hidden;
+  }
+  &__container {
+    display: grid;
+    width: 100%;
+    grid-auto-flow: column;
+    padding: 5px;
+    gap: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: transform 0.5s;
+  }
+  &__btn {
+    width: 50px;
+    background: rgb(122, 122, 122);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  &__item {
+    width: 100px;
+    height: calc(100px - 10px);
+    background: red;
+    cursor: pointer;
+    &--active {
+      border: 3px solid rgb(7, 215, 63);
+    }
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
