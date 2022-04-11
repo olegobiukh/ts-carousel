@@ -30,10 +30,9 @@
   &__item {
     width: 100px;
     height: calc(100px - 10px);
-    background: red;
     cursor: pointer;
     &--active {
-      border: 3px solid rgb(7, 215, 63);
+      border: 3px solid rgb(0, 0, 0);
     }
   }
 }

@@ -12,9 +12,6 @@ const Carousel: React.FC = () => {
   const [active, setActive] = useState<number>(0);
   const [allCats, setCats] = useState<string[] | null>(null);
   const [startingPoint, setStartingPoint] = useState<number>(0);
-  const crsWrp = document.querySelector(
-    ".carousel__wrapper"
-  ) as HTMLInputElement;
   const crsItm = document.querySelector(".carousel__item") as HTMLInputElement;
 
   const handleItemClick = (num: number): void => {
@@ -32,8 +29,10 @@ const Carousel: React.FC = () => {
 
   const getCatsNoiw = async () => {
     const cats = await getCats();
-    const images: string[] = cats.map((item: imageType) => item.id);
-    
+    const images: string[] = cats.map(
+      (item: imageType) => `https://cataas.com/cat?id=${item.id}`
+    );
+
     setCats(images);
   };
 
@@ -52,13 +51,19 @@ const Carousel: React.FC = () => {
       const crsItm = document.querySelector(
         ".carousel__item"
       ) as HTMLInputElement;
+      const crsWrp = document.querySelector(
+        ".carousel__wrapper"
+      ) as HTMLInputElement;
+      const cntCntnr = document.querySelector(
+        ".carousel__container"
+      ) as HTMLInputElement;
 
       const containerWidth = crsWrp.offsetWidth;
       const itemWidth = crsItm.offsetWidth;
       const startPoint = containerWidth / 2 - itemWidth / 2;
 
       setStartingPoint(startPoint);
-      crsWrp.style.transform = `translateX(${startPoint}px)`;
+      cntCntnr.style.transform = `translateX(${startPoint}px)`;
     }
   }, [allCats]);
 
@@ -68,7 +73,6 @@ const Carousel: React.FC = () => {
 
   return (
     <div className="carousel">
-      215155
       <div className="carousel__btn" onClick={() => handleButton("l")}>
         &lArr;
       </div>
